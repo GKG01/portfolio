@@ -17,11 +17,11 @@ export default function Header() {
 
             <nav aria-label="Primary navigation" className="hidden sm:block">
                 <ul className="flex items-center gap-5 text-xl font-semibold text-slate-400 sm:gap-8">
-                    {navigationItems.map((item) => (
+                    {navigationItems.map((item, index) => (
                         <li key={item}>
                             <button
                                 type="button"
-                                className="transition-colors hover:text-teal-300 active:opacity-75 focus-visible:text-teal-300 focus-visible:outline-none"
+                                className={`transition-colors hover:text-teal-300 active:opacity-75 focus-visible:text-teal-300 focus-visible:outline-none ${index === 0 ? 'text-teal-300 underline decoration-2 underline-offset-8' : ''}`}
                             >
                                 {item}
                             </button>
