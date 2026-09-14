@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gradPic from '@/assets/grad-pic.jpeg'
 
 const navigationItems = [
@@ -9,6 +9,8 @@ const navigationItems = [
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState('about-me')
+    const [indicator, setIndicator] = useState({ left: 0, width: 0 })
+    const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({})
 
     useEffect(() => {
         const updateActiveSection = () => {
@@ -16,7 +18,9 @@ export default function Header() {
             const currentSection = sectionIds.reduce((activeId, sectionId) => {
                 const section = document.getElementById(sectionId)
 
-                return section && section.offsetTop - 120 <= window.scrollY ? sectionId : activeId
+                return section && section.getBoundingClientRect().top <= window.innerHeight * 0.55
+                    ? sectionId
+                    : activeId
             }, sectionIds[0])
 
             setActiveSection(currentSection)
@@ -27,6 +31,30 @@ export default function Header() {
 
         return () => window.removeEventListener('scroll', updateActiveSection)
     }, [])
+
+    useLayoutEffect(() => {
+        const activeLink = linkRefs.current[activeSection]
+
+        if (!activeLink) {
+            return
+        }
+
+        setIndicator({ left: activeLink.offsetLeft, width: activeLink.offsetWidth })
+    }, [activeSection])
+
+    useEffect(() => {
+        const updateIndicator = () => {
+            const activeLink = linkRefs.current[activeSection]
+
+            if (activeLink) {
+                setIndicator({ left: activeLink.offsetLeft, width: activeLink.offsetWidth })
+            }
+        }
+
+        window.addEventListener('resize', updateIndicator)
+
+        return () => window.removeEventListener('resize', updateIndicator)
+    }, [activeSection])
 
     return (
         <header className="sticky top-0 z-50 flex h-[90px] w-full items-center justify-between border-b border-slate-800 bg-slate-950/90 px-6 backdrop-blur sm:px-10">
@@ -41,18 +69,31 @@ export default function Header() {
             </div>
 
             <nav aria-label="Primary navigation" className="hidden sm:block">
-                <ul className="flex items-center gap-5 text-xl font-semibold text-slate-400 sm:gap-8">
-                    {navigationItems.map((item) => (
-                        <li key={item.label}>
-                            <a
-                                href={item.href}
-                                aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
-                                className={`transition-colors hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none ${activeSection === item.href.slice(1) ? 'text-teal-300 underline decoration-2 underline-offset-8' : ''}`}
-                            >
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
+                <ul className="relative flex items-center gap-5 text-xl font-semibold text-slate-400 sm:gap-8">
+                    <span
+                        aria-hidden="true"
+                        className="absolute -bottom-2 h-0.5 rounded-full bg-teal-300 transition-[left,width] duration-300 ease-out"
+                        style={{ left: indicator.left, width: indicator.width }}
+                    />
+                    {navigationItems.map((item) => {
+                        const sectionId = item.href.slice(1)
+                        const isActive = activeSection === sectionId
+
+                        return (
+                            <li key={item.label}>
+                                <a
+                                    ref={(element) => {
+                                        linkRefs.current[sectionId] = element
+                                    }}
+                                    href={item.href}
+                                    aria-current={isActive ? 'page' : undefined}
+                                    className={`transition-colors duration-300 hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none ${isActive ? 'text-teal-300' : ''}`}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        )
+                    })}
                 </ul>
             </nav>
         </header>
