@@ -1,3 +1,5 @@
+import gmailIcon from '@/assets/gmail.svg'
+
 export default function Contact() {
     return (
         <section
@@ -16,13 +18,13 @@ export default function Contact() {
                     I’m always open to thoughtful conversations, new ideas, and opportunities to build something useful.
                 </p>
                 <a
-                    href="mailto:giankristoffgerodias@gmail.com"
-                    className="mt-10 inline-flex rounded-full bg-teal-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-teal-200"
+                    href="https://mail.google.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-10 inline-flex items-center gap-3 rounded-full bg-teal-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-teal-200"
                 >
-                    giankristoffgerodias@gmail.com{' '}
-                    <span className="ml-2" aria-hidden="true">
-                        ↗
-                    </span>
+                    <img src={gmailIcon} alt="" aria-hidden="true" className="size-5" />
+                    giankristoffgerodias@gmail.com <span aria-hidden="true">↗</span>
                 </a>
             </div>
         </section>
