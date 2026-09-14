@@ -21,13 +21,13 @@ export function AboutMe() {
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                     <a
                         href="#experience"
-                        className="rounded-full bg-teal-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-teal-200"
+                        className="rounded-full bg-teal-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-teal-200 active:opacity-75"
                     >
                         View my work
                     </a>
                     <a
                         href="#contact"
-                        className="rounded-full border border-slate-700 px-6 py-3 text-sm font-bold text-slate-200 transition hover:border-teal-300 hover:text-teal-300"
+                        className="rounded-full border border-slate-700 px-6 py-3 text-sm font-bold text-slate-200 transition hover:border-teal-300 hover:text-teal-300 active:opacity-75"
                     >
                         Let’s connect <span aria-hidden="true">↗</span>
                     </a>
@@ -55,7 +55,7 @@ export function AboutMe() {
                     <img src={gradPic} alt="Gian" className="size-full object-cover object-top" />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-transparent px-7 pb-7 pt-24">
                         <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-300">Hello, I’m Gian</p>
-                        <p className="mt-2 text-sm text-slate-300">Developer · Designer · Lifelong learner</p>
+                        <p className="mt-2 text-sm text-slate-300">Developer · Lifelong learner</p>
                     </div>
                 </div>
             </div>

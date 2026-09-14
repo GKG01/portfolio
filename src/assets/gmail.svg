@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Gmail icon">
+  <!-- Envelope body -->
+  <path fill="#ECEFF1" d="M0 3h24v18H0z"/>
+  <!-- Lower-right fold/shadow -->
+  <path fill="#CFD8DC" d="M12 12l12-9v18H12z"/>
+  <!-- Lower-left face -->
+  <path fill="#ECEFF1" d="M0 3l12 9v9H0z"/>
+  <!-- Gmail red M / side folds -->
+  <path fill="#F44336" d="M0 3h3l9 6.75L21 3h3v18h-3V7.25L12 14 3 7.25V21H0V3z"/>
+  <!-- Restore inner envelope faces over the red side-fold areas -->
+  <path fill="#ECEFF1" d="M3 7.25L12 14v7H3V7.25z"/>
+  <path fill="#CFD8DC" d="M21 7.25L12 14v7h9V7.25z"/>
+  <!-- Red side rails -->
+  <path fill="#F44336" d="M0 3h3v18H0zM21 3h3v18h-3z"/>
+  <!-- Red top diagonals -->
+  <path fill="#F44336" d="M0 3h4.15L12 8.9 19.85 3H24L12 12 0 3z"/>
+</svg>

@@ -4,6 +4,7 @@ import gradPic from '@/assets/grad-pic.jpeg'
 const navigationItems = [
     { label: 'About Me', href: '#about-me' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
 ]
 
@@ -87,7 +88,7 @@ export default function Header() {
                                     }}
                                     href={item.href}
                                     aria-current={isActive ? 'page' : undefined}
-                                    className={`transition-colors duration-300 hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none ${isActive ? 'text-teal-300' : ''}`}
+                                    className={`transition-colors duration-300 active:opacity-75 hover:text-teal-300 focus-visible:text-teal-300 focus-visible:outline-none ${isActive ? 'text-teal-300' : ''}`}
                                 >
                                     {item.label}
                                 </a>
