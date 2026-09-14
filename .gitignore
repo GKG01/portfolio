@@ -1,8 +1,8 @@
 /node_modules
 /vendor
+/dist
 /public/build
-/public/hot
-/public/storage
+/bootstrap
 .env
 .env.*
 !.env.example
