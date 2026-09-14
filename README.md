@@ -43,4 +43,5 @@ The production site is generated in `dist/` and can be deployed to any static ho
 npm run build
 npm run lint
 npm run typecheck
+npm run format:check
 ```
