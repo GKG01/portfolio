@@ -6,12 +6,7 @@ type ProjectCardProps = {
     label?: string
 }
 
-export default function ProjectCard({
-    title,
-    description,
-    technologies,
-    link = null,
-}: ProjectCardProps) {
+export default function ProjectCard({ title, description, technologies, link = null }: ProjectCardProps) {
     return (
         <div className="flex flex-col gap-6 rounded-2xl border border-teal-300/40 bg-teal-300/[0.06] p-6">
             <div>

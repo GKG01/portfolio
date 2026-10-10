@@ -13,16 +13,18 @@ const Projects = [
         id: 'assistant-app',
         link: null,
         title: 'Assistant App',
-        description: 'A desktop personal assistant designed primarily for Windows. This project is currently in progress still.',
+        description:
+            'A desktop personal assistant designed primarily for Windows. This project is currently in progress still.',
         technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Tauri', 'SQLite', 'Python'],
     },
     {
         id: 'clinify',
         link: null,
         title: 'Clinify',
-        description: 'A desktop app for simple storage and retrieval of patient information and documents. Built this together with two friends of mine.',
+        description:
+            'A desktop app for simple storage and retrieval of patient information and documents. Built this together with two friends of mine.',
         technologies: ['Flutter', 'PostgreSQL', 'Python'],
-    }
+    },
 ]
 
 export default function ProjectsSection() {
