@@ -2,10 +2,7 @@ import gmailIcon from '@/assets/gmail.svg'
 
 export default function Contact() {
     return (
-        <section
-            id="contact"
-            className="flex min-h-[calc(100vh-90px)] scroll-mt-[90px] items-center border-t border-slate-800 py-24"
-        >
+        <section id="contact" className="scroll-mt-[90px] border-t border-slate-800 py-12">
             <div className="w-full rounded-3xl border border-slate-800 bg-slate-900/50 p-8 sm:p-12 lg:p-16">
                 <p className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.28em] text-teal-300">
                     <span className="h-px w-10 bg-teal-400" />
